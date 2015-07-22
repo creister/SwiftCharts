@@ -15,17 +15,19 @@ class StraigthLinePathGenerator: ChartLinesViewPathGenerator {
         progressline.lineWidth = lineWidth
         progressline.lineCapStyle = .Round
         progressline.lineJoinStyle = .Round
-        
-        for i in 0..<(points.count - 1) {
-            let p1 = points[i]
-            let p2 = points[i + 1]
-            
-            progressline.moveToPoint(p1)
-            progressline.addLineToPoint(p2)
+
+        if points.count > 1 {
+            for i in 0..<(points.count - 1) {
+                let p1 = points[i]
+                let p2 = points[i + 1]
+
+                progressline.moveToPoint(p1)
+                progressline.addLineToPoint(p2)
+            }
+
+            progressline.closePath()
         }
-        
-        progressline.closePath()
-        
+
         return progressline
     }
 }
