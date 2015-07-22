@@ -1,5 +1,5 @@
 //
-//  StraigthLinePathGenerator.swift
+//  StraightLinePathGenerator.swift
 //  SwiftCharts
 //
 //  Created by ischuetz on 28/04/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StraigthLinePathGenerator: ChartLinesViewPathGenerator {
+class StraightLinePathGenerator: ChartLinesViewPathGenerator {
     func generatePath(points points: [CGPoint], lineWidth: CGFloat) -> UIBezierPath {
 
         let progressline = UIBezierPath()

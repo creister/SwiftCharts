@@ -99,7 +99,7 @@
 		EBC533771B00F02600D10448 /* ChartPointTextCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC533421B00F02600D10448 /* ChartPointTextCircleView.swift */; };
 		EBC533791B00F02600D10448 /* CubicLinePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC533441B00F02600D10448 /* CubicLinePathGenerator.swift */; };
 		EBC5337A1B00F02600D10448 /* HandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC533451B00F02600D10448 /* HandlingView.swift */; };
-		EBC5337B1B00F02600D10448 /* StraigthLinePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC533461B00F02600D10448 /* StraigthLinePathGenerator.swift */; };
+		EBC5337B1B00F02600D10448 /* StraightLinePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC533461B00F02600D10448 /* StraightLinePathGenerator.swift */; };
 		EBFA8BE21B052E02008A7C36 /* ChartPointViewBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA8BE11B052E02008A7C36 /* ChartPointViewBar.swift */; };
 		EBFA8BE41B054425008A7C36 /* BarsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA8BE31B054425008A7C36 /* BarsExample.swift */; };
 		EBFA8BEA1B065927008A7C36 /* ChartPointViewBarGreyOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA8BE91B065927008A7C36 /* ChartPointViewBarGreyOut.swift */; };
@@ -201,7 +201,7 @@
 		EBC533421B00F02600D10448 /* ChartPointTextCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPointTextCircleView.swift; sourceTree = "<group>"; };
 		EBC533441B00F02600D10448 /* CubicLinePathGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicLinePathGenerator.swift; sourceTree = "<group>"; };
 		EBC533451B00F02600D10448 /* HandlingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandlingView.swift; sourceTree = "<group>"; };
-		EBC533461B00F02600D10448 /* StraigthLinePathGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StraigthLinePathGenerator.swift; sourceTree = "<group>"; };
+		EBC533461B00F02600D10448 /* StraightLinePathGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StraightLinePathGenerator.swift; sourceTree = "<group>"; };
 		EBFA8BE11B052E02008A7C36 /* ChartPointViewBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPointViewBar.swift; sourceTree = "<group>"; };
 		EBFA8BE31B054425008A7C36 /* BarsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsExample.swift; sourceTree = "<group>"; };
 		EBFA8BE91B065927008A7C36 /* ChartPointViewBarGreyOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartPointViewBarGreyOut.swift; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 				EBC533441B00F02600D10448 /* CubicLinePathGenerator.swift */,
 				EBC533451B00F02600D10448 /* HandlingView.swift */,
 				EB5DC1121B0A7681001FD5A8 /* HandlingLabel.swift */,
-				EBC533461B00F02600D10448 /* StraigthLinePathGenerator.swift */,
+				EBC533461B00F02600D10448 /* StraightLinePathGenerator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,7 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBC5337B1B00F02600D10448 /* StraigthLinePathGenerator.swift in Sources */,
+				EBC5337B1B00F02600D10448 /* StraightLinePathGenerator.swift in Sources */,
 				EB5DB69B1AFD08AD00569E59 /* ScrollExample.swift in Sources */,
 				EBC5334A1B00F02600D10448 /* ChartAxisModel.swift in Sources */,
 				EB5DB6971AFD08AD00569E59 /* MultipleAxesInteractiveExample.swift in Sources */,
