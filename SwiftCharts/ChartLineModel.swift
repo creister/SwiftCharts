@@ -25,18 +25,32 @@ public struct ChartLineModel<T: ChartPoint> {
 
     /// The delay in seconds before the animation runs
     let animDelay: Float
-    
-    public init(chartPoints: [T], lineColor: UIColor, lineWidth: CGFloat = 1, animDuration: Float, animDelay: Float) {
+    let gradient: GradientModel?
+
+    public init(chartPoints: [T], lineColor: UIColor, lineWidth: CGFloat = 1, animDuration: Float, animDelay: Float, gradient: GradientModel? = nil) {
         self.chartPoints = chartPoints
         self.lineColor = lineColor
         self.lineWidth = lineWidth
         self.animDuration = animDuration
         self.animDelay = animDelay
+        self.gradient = gradient
     }
 
     /// The number of chart points in the model
     var chartPointsCount: Int {
         return self.chartPoints.count
     }
-    
+
+}
+
+public struct GradientModel {
+    let colors: [UIColor]
+    let start: CGPoint
+    let end: CGPoint
+
+    public init(colors: [UIColor], start: CGPoint, end: CGPoint) {
+        self.colors = colors
+        self.start = start
+        self.end = end
+    }
 }

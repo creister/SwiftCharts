@@ -14,13 +14,15 @@ private struct ScreenLine {
     let lineWidth: CGFloat
     let animDuration: Float
     let animDelay: Float
-    
-    init(points: [CGPoint], color: UIColor, lineWidth: CGFloat, animDuration: Float, animDelay: Float) {
+    let gradient: GradientModel?
+
+    init(points: [CGPoint], color: UIColor, lineWidth: CGFloat, animDuration: Float, animDelay: Float, gradient: GradientModel? = nil) {
         self.points = points
         self.color = color
         self.lineWidth = lineWidth
         self.animDuration = animDuration
         self.animDelay = animDelay
+        self.gradient = gradient
     }
 }
 
@@ -30,37 +32,49 @@ public class ChartPointsLineLayer<T: ChartPoint>: ChartPointsLayer<T> {
     private let pathGenerator: ChartLinesViewPathGenerator
 
     public init(xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, innerFrame: CGRect, lineModels: [ChartLineModel<T>], pathGenerator: ChartLinesViewPathGenerator = StraightLinePathGenerator(), displayDelay: Float = 0) {
-        
+
         self.lineModels = lineModels
         self.pathGenerator = pathGenerator
-        
+
         let chartPoints: [T] = lineModels.flatMap{$0.chartPoints}
-        
+
         super.init(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, chartPoints: chartPoints, displayDelay: displayDelay)
     }
-    
+
     private func toScreenLine(lineModel lineModel: ChartLineModel<T>, chart: Chart) -> ScreenLine {
         return ScreenLine(
             points: lineModel.chartPoints.map{self.chartPointScreenLoc($0)},
             color: lineModel.lineColor,
             lineWidth: lineModel.lineWidth,
             animDuration: lineModel.animDuration,
-            animDelay: lineModel.animDelay
+            animDelay: lineModel.animDelay,
+            gradient: lineModel.gradient
         )
     }
-    
+
     override func display(chart chart: Chart) {
         let screenLines = self.lineModels.map{self.toScreenLine(lineModel: $0, chart: chart)}
-        
+
         for screenLine in screenLines {
-            let lineView = ChartLinesView(
-                path: self.pathGenerator.generatePath(points: screenLine.points, lineWidth: screenLine.lineWidth),
-                frame: chart.bounds,
-                lineColor: screenLine.color,
-                lineWidth: screenLine.lineWidth,
-                animDuration: screenLine.animDuration,
-                animDelay: screenLine.animDelay)
-            
+            let lineView: ChartLinesView
+            if let _gradient = screenLine.gradient {
+                lineView = ChartLinesView(path: self.pathGenerator.generatePath(points: screenLine.points, lineWidth: screenLine.lineWidth),
+                    frame: chart.bounds,
+                    lineColors: _gradient.colors,
+                    gradientStart: _gradient.start,
+                    gradientEnd: _gradient.end,
+                    lineWidth: screenLine.lineWidth,
+                    animDuration: screenLine.animDuration,
+                    animDelay: screenLine.animDelay)
+            } else {
+                lineView = ChartLinesView(
+                    path: self.pathGenerator.generatePath(points: screenLine.points, lineWidth: screenLine.lineWidth),
+                    frame: chart.bounds,
+                    lineColor: screenLine.color,
+                    lineWidth: screenLine.lineWidth,
+                    animDuration: screenLine.animDuration,
+                    animDelay: screenLine.animDelay)
+            }
             self.lineViews.append(lineView)
             chart.addSubview(lineView)
         }
