@@ -60,7 +60,7 @@ public class ChartCandleStickView: UIView {
     }
     
     override public func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()!
 
         let wHalf = self.frame.width / 2
         

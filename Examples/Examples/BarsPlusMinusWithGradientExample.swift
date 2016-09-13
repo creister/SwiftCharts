@@ -120,7 +120,7 @@ class BarsPlusMinusWithGradientExample: UIViewController {
         let gradientImg: UIImage
         
         lazy var imgData: UnsafePointer<UInt8> = {
-            let provider = CGImageGetDataProvider(self.gradientImg.CGImage)
+            let provider = CGImageGetDataProvider(self.gradientImg.CGImage!)!
             let pixelData = CGDataProviderCopyData(provider)
             return CFDataGetBytePtr(pixelData)
         }()
@@ -147,10 +147,10 @@ class BarsPlusMinusWithGradientExample: UIViewController {
                 8,
                 bitmapBytesPerRow,
                 colorSpace,
-                bitmapInfo)
+                bitmapInfo)!
             
             UIGraphicsBeginImageContext(gradient.bounds.size)
-            gradient.renderInContext(context!)
+            gradient.renderInContext(context)
             
             let gradientImg = UIImage(CGImage: CGBitmapContextCreateImage(context)!)
             

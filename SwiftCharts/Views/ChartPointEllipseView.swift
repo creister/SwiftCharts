@@ -56,12 +56,12 @@ public class ChartPointEllipseView: UIView {
     }
     
     override public func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()!
 
         let borderOffset = self.borderWidth ?? 0
         let circleRect = (CGRectMake(borderOffset, borderOffset, self.frame.size.width - (borderOffset * 2), self.frame.size.height - (borderOffset * 2)))
         
-        if let borderWidth = self.borderWidth, borderColor = self.borderColor {
+        if let borderWidth = self.borderWidth, let borderColor = self.borderColor {
             CGContextSetLineWidth(context, borderWidth)
             CGContextSetStrokeColorWithColor(context, borderColor.CGColor)
             CGContextStrokeEllipseInRect(context, circleRect)

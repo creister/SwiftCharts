@@ -76,7 +76,7 @@ public class ChartLinesView: UIView {
     private func generateLayer(path path: UIBezierPath) -> CAShapeLayer {
         let lineLayer = CAShapeLayer()
         lineLayer.lineJoin = kCALineJoinRound
-        lineLayer.fillColor   = UIColor.clearColor().CGColor
+        lineLayer.fillColor   = nil
         lineLayer.lineWidth   = self.lineWidth
 
         lineLayer.path = path.CGPath;
